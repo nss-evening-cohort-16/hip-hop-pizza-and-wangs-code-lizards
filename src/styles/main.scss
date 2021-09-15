@@ -8,3 +8,33 @@ body {
   text-align: center;
   margin-top: 100px;
 }
+
+#navBar {
+
+  .nav-logo {
+    width: 80px;
+    height: auto;
+  }
+
+  .search-logout {
+    margin-left: 800px;
+  }
+}
+
+#mainContainer {
+
+  #buttons-container {
+    align-items: center;
+    margin-top: 200px;
+
+    .btn {
+      margin: 10px;
+    }
+  
+    .pizza-logo {
+      margin: 15px;
+      width: 250px;
+      height: auto;
+    }
+  }
+}
