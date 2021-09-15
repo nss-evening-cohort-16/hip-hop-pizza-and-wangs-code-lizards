@@ -1,8 +1,10 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import homeLoggedOut from './homeLoggedOut';
 
 const signMeOut = () => {
   firebase.auth().signOut();
+  homeLoggedOut();
 };
 
 const logoutButton = () => {
