@@ -1,4 +1,4 @@
-import clearDom from "./clearDom"
+import clearDom from './clearDom'
 
 const buildOrderForm = (obj = { }) => {
   clearDom();
@@ -23,7 +23,7 @@ const buildOrderForm = (obj = { }) => {
   </select>
   <button type="submit" id="${obj.firebaseKey ? `update-order--${obj.firebaseKey}` : 'submit-order'} class="btn btn-primary">Create/Edit Order</button>
 </form>
-  `
-}
+  `;
+};
 
 export default buildOrderForm;
