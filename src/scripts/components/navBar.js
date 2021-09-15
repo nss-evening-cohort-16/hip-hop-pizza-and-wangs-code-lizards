@@ -10,11 +10,13 @@ const navBar = () => {
         <li class="nav-item">
           <a class="nav-link" href="#" id="create-order">Create An Order</a>
         </li>
+        <div class="search-logout">
         <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
       </form>
-      </ul>
-      <div id="logout-button"></div>
+        </ul>
+        <div id="logout-button" class="logout"></div>
+      <div>
   </nav>
 `;
 };
