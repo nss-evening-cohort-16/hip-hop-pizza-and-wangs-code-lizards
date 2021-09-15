@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import firebaseConfig from '../../api/apiKeys';
+// import homeLoggedOut from '../components/l';
 import loginButton from '../components/loginButton';
 import logoutButton from '../components/logoutButton';
 import startApp from '../startApp';
@@ -13,6 +14,7 @@ const checkLoginStatus = () => {
       logoutButton();
     } else {
       loginButton();
+      // homeLoggedOut();
     }
   });
 };
