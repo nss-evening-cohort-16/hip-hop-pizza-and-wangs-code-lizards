@@ -1,4 +1,7 @@
+import clearDom from "./clearDom"
+
 const buildOrderForm = (obj = { }) => {
+  clearDom();
   document.querySelector('#formContainer').innerHTML = `
   <form id="order-form">
   <div class="mb-3">
@@ -22,3 +25,5 @@ const buildOrderForm = (obj = { }) => {
 </form>
   `
 }
+
+export default buildOrderForm;
