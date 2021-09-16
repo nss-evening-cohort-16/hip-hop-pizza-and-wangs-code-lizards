@@ -1,6 +1,7 @@
 import homeLoggedIn from './components/homeLoggedIn';
 import navBar from './components/navBar';
 import domBuilder from './helpers/domBuilder';
+import navEvents from './events/navEvents';
 import domEvents from './events/domEvents';
 
 const startApp = (user) => {
@@ -8,6 +9,7 @@ const startApp = (user) => {
   domBuilder();
   domEvents(user.uid);
   navBar();
+  navEvents(user.uid);
   homeLoggedIn();
 };
 
