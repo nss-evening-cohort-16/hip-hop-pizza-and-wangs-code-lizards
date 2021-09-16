@@ -7,7 +7,6 @@ const navEvents = () => {
 
   document.querySelector('#view-orders').addEventListener('click', () => {
     console.warn('View Orders');
-    // getOrders(uid).then(showOrders);
   });
 };
 export default navEvents;
