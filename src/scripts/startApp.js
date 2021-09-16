@@ -7,7 +7,7 @@ import domEvents from './events/domEvents';
 const startApp = (user) => {
   console.warn('App started!');
   domBuilder();
-  domEvents(user);
+  domEvents(user.uid);
   navBar();
   navEvents(user.uid);
   homeLoggedIn();
