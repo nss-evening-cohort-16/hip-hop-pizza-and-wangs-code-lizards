@@ -1,5 +1,6 @@
 import buildOrderForm from '../helpers/buildOrderForm';
-// import { getOrders } from '../helpers/data/ordersData';
+import { getOrders } from '../helpers/data/ordersData';
+import showOrders from '../components/showOrders';
 
 const domEvents = (uid) => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -11,7 +12,7 @@ const domEvents = (uid) => {
     // CLICK EVENT FOR VIEWING ORDERS
     if (e.target.id.includes('view-orders')) {
       console.warn('View Orders');
-      // getOrders(uid).then(showOrders);
+      getOrders(uid).then(showOrders);
     }
 
     // CLICK EVENT FOR VIEWING REVENUE
