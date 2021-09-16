@@ -1,5 +1,5 @@
+import buildOrderForm from '../components/forms/buildOrderForm';
 import showOrders from '../components/showOrders';
-import buildOrderForm from '../helpers/buildOrderForm';
 import { getOrders } from '../helpers/data/ordersData';
 
 const navEvents = (uid) => {

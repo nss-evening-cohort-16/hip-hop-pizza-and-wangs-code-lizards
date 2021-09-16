@@ -1,4 +1,4 @@
-import buildOrderForm from '../helpers/buildOrderForm';
+import buildOrderForm from '../components/forms/buildOrderForm';
 import { getOrders } from '../helpers/data/ordersData';
 import showOrders from '../components/showOrders';
 
