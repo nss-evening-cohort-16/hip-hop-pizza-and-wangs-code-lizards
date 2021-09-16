@@ -1,4 +1,4 @@
-import clearDom from './clearDom'
+import clearDom from './clearDom';
 
 const buildOrderForm = (obj = { }) => {
   clearDom();
