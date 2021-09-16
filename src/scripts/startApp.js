@@ -1,15 +1,14 @@
 import homeLoggedIn from './components/homeLoggedIn';
 import navBar from './components/navBar';
-import showOrders from './components/showOrders';
 import domBuilder from './helpers/domBuilder';
-import { getOrders } from './helpers/data/orders';
+import domEvents from './events/domEvents';
 
 const startApp = (user) => {
   console.warn('App started!');
   domBuilder();
+  domEvents(user.uid);
   navBar();
   homeLoggedIn();
-  getOrders(user.uid).then(showOrders);
 };
 
 export default startApp;
