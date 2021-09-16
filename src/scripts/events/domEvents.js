@@ -1,4 +1,4 @@
-import buildOrderForm from '../helpers/buildOrderForm';
+import buildOrderForm from '../components/forms/buildOrderForm';
 
 const domEvents = (uid) => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
