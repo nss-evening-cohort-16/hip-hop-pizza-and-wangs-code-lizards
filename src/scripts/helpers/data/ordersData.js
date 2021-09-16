@@ -11,7 +11,7 @@ const getOrders = (userId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-// GET SINGLE BOOK
+// GET SINGLE ORDER
 const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/orders/${firebaseKey}.json`)
     .then((response) => resolve(response.data))
