@@ -25,7 +25,7 @@ const createOrder = (cardObj) => new Promise((resolve, reject) => {
       const body = { firebaseKey: response.data.name };
       axios.patch(`${dbUrl}/orders/${response.data.name}.json`, body)
         .then(() => {
-          getOrders(cardObj.userId).then(resolve);
+          getOrders(cardObj.uid).then(resolve);
         });
     })
     .catch(reject);
