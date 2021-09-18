@@ -1,5 +1,5 @@
 import buildOrderForm from '../components/forms/buildOrderForm';
-import { getOrders } from '../helpers/data/ordersData';
+import { deleteOrder, getOrders } from '../helpers/data/ordersData';
 import showOrders from '../components/showOrders';
 
 const domEvents = (uid) => {
@@ -18,6 +18,14 @@ const domEvents = (uid) => {
     // CLICK EVENT FOR VIEWING REVENUE
     if (e.target.id.includes('view-revenue')) {
       console.warn('View Revenue');
+    }
+
+    if (e.target.id.includes('delete-order')) {
+      // eslint-disable-next-line no-alert
+      if (window.confirm('Delete Order?')) {
+        const [, id] = e.target.id.split('--');
+        deleteOrder(id, uid).then(showOrders);
+      }
     }
   });
 };

@@ -12,9 +12,9 @@ const showOrders = (array) => {
                 <p class="card-text">Phone: ${order.customerphone}</p>
                 <p class="card-text">Email: ${order.customeremail}</p>
                 <p class="card-text">Order Type: ${order.ordertype}</p>
-                <a href="#" class="card-link">Details</a>
-                <a href="#" class="card-link">Edit</a>
-                <a href="#" class="card-link">Delete</a>
+                <a href="#" id="order-details--${order.firebaseKey}" class="card-link">Details</a>
+                <a href="#" id="edit-order--${order.firebaseKey}" class="card-link">Edit</a>
+                <a href="#" id="delete-order--${order.firebaseKey}" class="card-link">Delete</a>
             </div>
         </div>`;
   });

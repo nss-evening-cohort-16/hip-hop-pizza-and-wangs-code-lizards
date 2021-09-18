@@ -18,4 +18,11 @@ const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export { getOrders, getSingleOrder };
+const deleteOrder = (firebaseKey, uid) => new Promise((resolve, reject) => {
+  axios.delete(`${dbUrl}/orders/${firebaseKey}.json`)
+    .then(() => {
+      getOrders(uid).then(resolve);
+    }).catch(reject);
+});
+
+export { getOrders, getSingleOrder, deleteOrder };
