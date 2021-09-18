@@ -16,7 +16,7 @@ const buildOrderForm = (obj = { }) => {
     <label for="customerEmail" class="form-label">Customer Email</label>
     <input type="text" class="form-control" id="customerEmail" value="${obj.customeremail || ''}">
   </div>
-  <select class="form-select" aria-label="Default select example" value="${obj.ordertype || ''}">
+  <select id="orderType" class="form-select" aria-label="Default select example" value="${obj.ordertype || ''}">
     <option selected>Order Type</option>
     <option value="1">Phone</option>
     <option value="2">In-Person</option>
