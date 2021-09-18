@@ -1,5 +1,10 @@
 import buildOrderForm from '../components/forms/buildOrderForm';
-import { getOrders, getSingleOrder, updateOrder } from '../helpers/data/ordersData';
+import {
+  getOrders,
+  getSingleOrder,
+  updateOrder,
+  createOrder
+} from '../helpers/data/ordersData';
 import showOrders from '../components/showOrders';
 
 const domEvents = (uid) => {
@@ -7,6 +12,22 @@ const domEvents = (uid) => {
     // CLICK EVENT FOR SHOWING FORM FOR CREATING AN ORDER
     if (e.target.id.includes('create-order')) {
       buildOrderForm(uid);
+    }
+
+    // SUBMITTING A NEW ORDER
+    if (e.target.id.includes('submit-order')) {
+      e.preventDefault();
+      console.warn('Order submitted');
+      const newOrder = {
+        customername: document.querySelector('#orderName').value,
+        customerphone: document.querySelector('#customerPhone').value,
+        customeremail: document.querySelector('#customerEmail').value,
+        ordertype: document.querySelector('#orderType').value,
+        isClosed: false,
+        uid
+      };
+
+      createOrder(newOrder, uid).then(showOrders);
     }
 
     // CLICK EVENT FOR VIEWING ORDERS
