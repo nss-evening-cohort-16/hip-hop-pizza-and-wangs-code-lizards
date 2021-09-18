@@ -1,6 +1,7 @@
 // API CALLS FOR BOOKS
 import axios from 'axios';
 import firebaseConfig from '../../../api/apiKeys';
+import { getOrders } from './ordersData';
 
 const dbUrl = firebaseConfig.databaseURL;
 
@@ -14,8 +15,8 @@ const orderItems = (orderId) => new Promise((resolve, reject) => {
 const deleteItem = (firebaseKey, uid) => new Promise((resolve, reject) => {
   axios.delete(`${dbUrl}/items/${firebaseKey}.json`)
     .then(() => {
-      orderItems(uid).then(resolve);
+      getOrders(uid).then(resolve);
     }).catch(reject);
 });
 
-export default { orderItems, deleteItem };
+export { orderItems, deleteItem };

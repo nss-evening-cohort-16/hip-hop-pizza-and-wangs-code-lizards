@@ -3,6 +3,7 @@ import { deleteOrder, getOrders } from '../helpers/data/ordersData';
 import showOrders from '../components/showOrders';
 import viewOrder from '../components/viewOrder';
 import viewOrderDetails from '../helpers/data/mergedData';
+import { deleteItem } from '../helpers/data/itemsData';
 
 const domEvents = (uid) => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -34,7 +35,7 @@ const domEvents = (uid) => {
       // eslint-disable-next-line no-alert
       if (window.confirm('Delete Item from Order?')) {
         const [, id] = e.target.id.split('--');
-        deleteItem().then(orderItems)
+        deleteItem(id, uid).then(viewOrder);
       }
     }
     // CLICK EVENT FOR VIEWING AN ORDER
