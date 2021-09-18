@@ -1,4 +1,4 @@
-// API CALLS FOR ORDERS
+// API CALLS FOR ITEMS
 import axios from 'axios';
 import firebaseConfig from '../../../api/apiKeys';
 

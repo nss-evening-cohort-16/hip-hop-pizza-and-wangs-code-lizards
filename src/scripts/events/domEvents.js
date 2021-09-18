@@ -1,6 +1,9 @@
 import buildOrderForm from '../components/forms/buildOrderForm';
 import { getOrders } from '../helpers/data/ordersData';
 import showOrders from '../components/showOrders';
+import viewOrder from '../components/viewOrder';
+import viewOrderDetails from '../helpers/data/mergedData';
+import buildItemForm from '../components/forms/buildItemForm';
 
 const domEvents = (uid) => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -21,8 +24,14 @@ const domEvents = (uid) => {
     }
 
     // CLICK EVENT FOR ADDING ITEM TO ORDER
-    if (e.target.id.includes('add/edit item button id')) {
-      console.warn('Add Item');
+    if (e.target.id.includes('add-item')) {
+      buildItemForm(uid);
+    }
+
+    // CLICK EVENT FOR VIEWING AN ORDER
+    if (e.target.id.includes('order-details')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      viewOrderDetails(firebaseKey).then(viewOrder);
     }
   });
 };
