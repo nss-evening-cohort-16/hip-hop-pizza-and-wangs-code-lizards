@@ -1,8 +1,6 @@
 import buildOrderForm from '../components/forms/buildOrderForm';
-import { getOrders } from '../helpers/data/ordersData';
+import { getOrders, getSingleOrder } from '../helpers/data/ordersData';
 import showOrders from '../components/showOrders';
-import viewOrder from '../components/viewOrder';
-import viewOrderDetails from '../helpers/data/mergedData';
 
 const domEvents = (uid) => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -17,15 +15,21 @@ const domEvents = (uid) => {
       getOrders(uid).then(showOrders);
     }
 
+    // CLICK EVENT FOR EDITING AN ORDER
+    if (e.target.id.includes('edit-order')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleOrder(firebaseKey).then(buildOrderForm);
+    }
+
+    // CLICK EVENT FOR UPDATING AN ORDER
+    // if (e.target.id.includes('update-order')) {
+    //   e.preventDefault();
+
+    // }
+
     // CLICK EVENT FOR VIEWING REVENUE
     if (e.target.id.includes('view-revenue')) {
       console.warn('View Revenue');
-    }
-
-    // CLICK EVENT FOR VIEWING AN ORDER
-    if (e.target.id.includes('order-details')) {
-      const [, firebaseKey] = e.target.id.split('--');
-      viewOrderDetails(firebaseKey).then(viewOrder);
     }
   });
 };
