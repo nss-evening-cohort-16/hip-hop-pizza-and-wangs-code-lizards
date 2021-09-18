@@ -19,6 +19,11 @@ const domEvents = (uid) => {
     if (e.target.id.includes('view-revenue')) {
       console.warn('View Revenue');
     }
+
+    // CLICK EVENT FOR ADDING ITEM TO ORDER
+    if (e.target.id.includes('add/edit item button id')) {
+      console.warn('Add Item');
+    }
   });
 };
 
