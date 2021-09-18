@@ -1,6 +1,8 @@
 import buildOrderForm from '../components/forms/buildOrderForm';
 import { deleteOrder, getOrders } from '../helpers/data/ordersData';
 import showOrders from '../components/showOrders';
+import viewOrder from '../components/viewOrder';
+import viewOrderDetails from '../helpers/data/mergedData';
 
 const domEvents = (uid) => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -26,6 +28,11 @@ const domEvents = (uid) => {
         const [, id] = e.target.id.split('--');
         deleteOrder(id, uid).then(showOrders);
       }
+    }
+    // CLICK EVENT FOR VIEWING AN ORDER
+    if (e.target.id.includes('order-details')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      viewOrderDetails(firebaseKey).then(viewOrder);
     }
   });
 };
