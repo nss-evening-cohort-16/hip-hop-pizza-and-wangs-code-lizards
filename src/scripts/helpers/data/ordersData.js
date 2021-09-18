@@ -22,13 +22,13 @@ const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
 const createOrder = (cardObj) => new Promise((resolve, reject) => {
   axios.post(`${dbUrl}/orders.json`, cardObj)
     .then((response) => {
-        const body = { firebaseKey: response.data.name };
-    axios.patch(`${dbUrl}/orders/${response.data.name}.json`, body)
-    .then(() => {
-      getOrders(cardObj.userId).then(resolve);
-    });
-  })
-  .catch(reject);
-})
+      const body = { firebaseKey: response.data.name };
+      axios.patch(`${dbUrl}/orders/${response.data.name}.json`, body)
+        .then(() => {
+          getOrders(cardObj.userId).then(resolve);
+        });
+    })
+    .catch(reject);
+});
 
 export { getOrders, getSingleOrder, createOrder };
