@@ -11,4 +11,11 @@ const orderItems = (orderId) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export default orderItems;
+const deleteItem = (firebaseKey, uid) => new Promise((resolve, reject) => {
+  axios.delete(`${dbUrl}/items/${firebaseKey}.json`)
+    .then(() => {
+      orderItems(uid).then(resolve);
+    }).catch(reject);
+});
+
+export default { orderItems, deleteItem };

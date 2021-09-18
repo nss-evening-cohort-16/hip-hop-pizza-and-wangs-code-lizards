@@ -24,5 +24,4 @@ const deleteOrder = (firebaseKey, uid) => new Promise((resolve, reject) => {
       getOrders(uid).then(resolve);
     }).catch(reject);
 });
-
 export { getOrders, getSingleOrder, deleteOrder };

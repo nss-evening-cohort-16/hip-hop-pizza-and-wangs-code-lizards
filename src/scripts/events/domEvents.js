@@ -29,6 +29,14 @@ const domEvents = (uid) => {
         deleteOrder(id, uid).then(showOrders);
       }
     }
+
+    if (e.target.id.includes('delete-item')) {
+      // eslint-disable-next-line no-alert
+      if (window.confirm('Delete Item from Order?')) {
+        const [, id] = e.target.id.split('--');
+        deleteItem().then(orderItems)
+      }
+    }
     // CLICK EVENT FOR VIEWING AN ORDER
     if (e.target.id.includes('order-details')) {
       const [, firebaseKey] = e.target.id.split('--');
