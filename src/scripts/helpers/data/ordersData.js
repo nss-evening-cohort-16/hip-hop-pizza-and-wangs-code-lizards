@@ -32,6 +32,3 @@ const createOrder = (cardObj) => new Promise((resolve, reject) => {
 });
 
 export { getOrders, getSingleOrder, createOrder };
-// UPDATE ORDER
-
-export { getOrders, getSingleOrder };
