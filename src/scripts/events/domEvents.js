@@ -1,5 +1,5 @@
 import buildOrderForm from '../components/forms/buildOrderForm';
-import { getOrders, getSingleOrder } from '../helpers/data/ordersData';
+import { getOrders, getSingleOrder, updateOrder } from '../helpers/data/ordersData';
 import showOrders from '../components/showOrders';
 
 const domEvents = (uid) => {
@@ -22,10 +22,19 @@ const domEvents = (uid) => {
     }
 
     // CLICK EVENT FOR UPDATING AN ORDER
-    // if (e.target.id.includes('update-order')) {
-    //   e.preventDefault();
+    if (e.target.id.includes('update-order')) {
+      e.preventDefault();
+      const [, firebaseKey] = e.target.id.split('--');
+      const orderObject = {
+        customername: document.querySelector('#orderName').value,
+        customerphone: document.querySelector('#customerPhone').value,
+        customeremail: document.querySelector('#customerEmail').value,
+        ordertype: document.querySelector('#orderType').value,
+        firebaseKey
+      };
 
-    // }
+      updateOrder(orderObject).then(showOrders);
+    }
 
     // CLICK EVENT FOR VIEWING REVENUE
     if (e.target.id.includes('view-revenue')) {

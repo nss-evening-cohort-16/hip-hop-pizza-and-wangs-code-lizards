@@ -19,5 +19,10 @@ const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
 });
 
 // UPDATE ORDER
+const updateOrder = (orderObj) => new Promise((resolve, reject) => {
+  axios.patch(`${dbUrl}/orders/${orderObj.firebaseKey}.json`, orderObj)
+    .then(() => getOrders(orderObj.uid).then(resolve))
+    .catch(reject);
+});
 
-export { getOrders, getSingleOrder };
+export { getOrders, getSingleOrder, updateOrder };
