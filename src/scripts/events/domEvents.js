@@ -6,6 +6,8 @@ import {
   createOrder
 } from '../helpers/data/ordersData';
 import showOrders from '../components/showOrders';
+import viewOrder from '../components/viewOrder';
+import viewOrderDetails from '../helpers/data/mergedData';
 
 const domEvents = (uid) => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -32,7 +34,6 @@ const domEvents = (uid) => {
 
     // CLICK EVENT FOR VIEWING ORDERS
     if (e.target.id.includes('view-orders')) {
-      console.warn('View Orders');
       getOrders(uid).then(showOrders);
     }
 
@@ -55,6 +56,12 @@ const domEvents = (uid) => {
       };
 
       updateOrder(orderObject).then(showOrders);
+    }
+
+    // CLICK EVENT FOR VIEWING AN ORDER
+    if (e.target.id.includes('order-details')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      viewOrderDetails(firebaseKey).then(viewOrder);
     }
 
     // CLICK EVENT FOR VIEWING REVENUE
