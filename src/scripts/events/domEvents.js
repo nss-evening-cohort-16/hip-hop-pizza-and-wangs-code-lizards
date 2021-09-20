@@ -1,10 +1,10 @@
 import buildOrderForm from '../components/forms/buildOrderForm';
-import { createOrder, getOrders, deleteOrder } from '../helpers/data/ordersData';
 import {
   getOrders,
   getSingleOrder,
   updateOrder,
-  createOrder
+  createOrder,
+  deleteOrder
 } from '../helpers/data/ordersData';
 import showOrders from '../components/showOrders';
 import viewOrder from '../components/viewOrder';
