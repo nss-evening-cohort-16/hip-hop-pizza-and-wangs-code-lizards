@@ -11,8 +11,8 @@ const viewOrder = (obj) => {
           <h5>PRICE: $${item.itemprice}</h5>
         </div>
         <div class="mt-5">
-          <a id="edit-order--${item.firebaseKey}" href="#" class="card-link">Edit Item</a>
-          <a id="delete-order--${item.firebaseKey}" href="#" class="card-link">Delete Item</a>
+          <a id="edit-item--${item.firebaseKey}" href="#" class="card-link">Edit Item</a>
+          <a id="delete-item--${item.firebaseKey}" href="#" class="card-link">Delete Item</a>
         </div>
       </div>
       <button type="button" class="btn btn-success" id="add-item-btn">Add Item</button>
