@@ -1,11 +1,5 @@
 import buildOrderForm from '../components/forms/buildOrderForm';
-import {
-  getOrders,
-  getSingleOrder,
-  updateOrder,
-  createOrder,
-  deleteOrder
-} from '../helpers/data/ordersData';
+import { createOrder, getOrders, deleteOrder } from '../helpers/data/ordersData';
 import showOrders from '../components/showOrders';
 import viewOrder from '../components/viewOrder';
 import viewOrderDetails from '../helpers/data/mergedData';
@@ -36,28 +30,13 @@ const domEvents = (uid) => {
 
     // CLICK EVENT FOR VIEWING ORDERS
     if (e.target.id.includes('view-orders')) {
+      console.warn('View Orders');
       getOrders(uid).then(showOrders);
     }
 
-    // CLICK EVENT FOR EDITING AN ORDER
-    if (e.target.id.includes('edit-order')) {
-      const [, firebaseKey] = e.target.id.split('--');
-      getSingleOrder(firebaseKey).then(buildOrderForm);
-    }
-
-    // CLICK EVENT FOR UPDATING AN ORDER
-    if (e.target.id.includes('update-order')) {
-      e.preventDefault();
-      const [, firebaseKey] = e.target.id.split('--');
-      const orderObject = {
-        customername: document.querySelector('#orderName').value,
-        customerphone: document.querySelector('#customerPhone').value,
-        customeremail: document.querySelector('#customerEmail').value,
-        ordertype: document.querySelector('#orderType').value,
-        firebaseKey
-      };
-
-      updateOrder(orderObject).then(showOrders);
+    // CLICK EVENT FOR VIEWING REVENUE
+    if (e.target.id.includes('view-revenue')) {
+      console.warn('View Revenue');
     }
 
     if (e.target.id.includes('delete-order')) {
@@ -79,11 +58,6 @@ const domEvents = (uid) => {
     if (e.target.id.includes('order-details')) {
       const [, firebaseKey] = e.target.id.split('--');
       viewOrderDetails(firebaseKey).then(viewOrder);
-    }
-
-    // CLICK EVENT FOR VIEWING REVENUE
-    if (e.target.id.includes('view-revenue')) {
-      console.warn('View Revenue');
     }
   });
 };
