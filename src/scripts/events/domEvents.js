@@ -64,6 +64,25 @@ const domEvents = (uid) => {
       viewOrderDetails(firebaseKey).then(viewOrder);
     }
 
+    // CLICK EVENT FOR EDITING AN ITEM
+    // if (e.target.id.includes('edit-item')) {
+    //   const [, firebaseKey] = e.target.id.split('--');
+    //   getSingleItem(firebaseKey).then(buildItemForm);
+    // }
+
+    // CLICK EVENT FOR UPDATING AN ITEM
+    // if (e.target.id.includes('update-item')) {
+    //   e.preventDefault();
+    //   const [, firebaseKey] = e.target.id.split('--');
+    //   const itemObject = {
+    //     itemname: document.querySelector('#itemName').value,
+    //     itemprice: document.querySelector('#itemPrice').value,
+    //     firebaseKey
+    //   };
+
+      // updateItem(itemObject).then(showItems);
+    }
+
     // CLICK EVENT FOR VIEWING REVENUE
     if (e.target.id.includes('view-revenue')) {
       console.warn('View Revenue');
