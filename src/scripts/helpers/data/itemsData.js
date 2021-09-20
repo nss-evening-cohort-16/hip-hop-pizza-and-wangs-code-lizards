@@ -14,7 +14,7 @@ const orderItems = (orderId) => new Promise((resolve, reject) => {
 // UPDATE ITEMS
 const updateItems = (itemsObj) => new Promise((resolve, reject) => {
   axios.patch(`${dbUrl}/orders/${itemsObj.firebaseKey}.json`, itemsObj)
-    .then(() => getItems(itemsObj.uid).then(resolve))
+    .then(() => orderItems(itemsObj.uid).then(resolve))
     .catch(reject);
 });
 

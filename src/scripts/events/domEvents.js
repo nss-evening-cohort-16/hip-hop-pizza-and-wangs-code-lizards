@@ -70,7 +70,7 @@ const domEvents = (uid) => {
     //   getSingleItem(firebaseKey).then(buildItemForm);
     // }
 
-    // CLICK EVENT FOR UPDATING AN ITEM
+    // // CLICK EVENT FOR UPDATING AN ITEM
     // if (e.target.id.includes('update-item')) {
     //   e.preventDefault();
     //   const [, firebaseKey] = e.target.id.split('--');
@@ -80,8 +80,8 @@ const domEvents = (uid) => {
     //     firebaseKey
     //   };
 
-      // updateItem(itemObject).then(showItems);
-    }
+    // updateItem(itemObject).then(showItems);
+    // }
 
     // CLICK EVENT FOR VIEWING REVENUE
     if (e.target.id.includes('view-revenue')) {
