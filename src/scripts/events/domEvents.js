@@ -3,11 +3,13 @@ import {
   getOrders,
   getSingleOrder,
   updateOrder,
-  createOrder
+  createOrder,
+  deleteOrder
 } from '../helpers/data/ordersData';
 import showOrders from '../components/showOrders';
 import viewOrder from '../components/viewOrder';
 import viewOrderDetails from '../helpers/data/mergedData';
+import { deleteItem } from '../helpers/data/itemsData';
 
 const domEvents = (uid) => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -58,6 +60,21 @@ const domEvents = (uid) => {
       updateOrder(orderObject).then(showOrders);
     }
 
+    if (e.target.id.includes('delete-order')) {
+      // eslint-disable-next-line no-alert
+      if (window.confirm('Delete Order?')) {
+        const [, id] = e.target.id.split('--');
+        deleteOrder(id, uid).then(showOrders);
+      }
+    }
+
+    if (e.target.id.includes('delete-item')) {
+      // eslint-disable-next-line no-alert
+      if (window.confirm('Delete Item from Order?')) {
+        const [, id] = e.target.id.split('--');
+        deleteItem(id, uid).then(viewOrder);
+      }
+    }
     // CLICK EVENT FOR VIEWING AN ORDER
     if (e.target.id.includes('order-details')) {
       const [, firebaseKey] = e.target.id.split('--');
