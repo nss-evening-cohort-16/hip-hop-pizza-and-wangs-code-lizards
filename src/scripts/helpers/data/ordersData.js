@@ -18,6 +18,13 @@ const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// UPDATE ORDER
+const updateOrder = (orderObj) => new Promise((resolve, reject) => {
+  axios.patch(`${dbUrl}/orders/${orderObj.firebaseKey}.json`, orderObj)
+    .then(() => getOrders(orderObj.uid).then(resolve))
+    .catch(reject);
+});
+
 // CREATE NEW ORDER
 const createOrder = (cardObj) => new Promise((resolve, reject) => {
   axios.post(`${dbUrl}/orders.json`, cardObj)
@@ -31,4 +38,9 @@ const createOrder = (cardObj) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export { getOrders, getSingleOrder, createOrder };
+export {
+  getOrders,
+  getSingleOrder,
+  updateOrder,
+  createOrder
+};
