@@ -1,5 +1,5 @@
 import buildOrderForm from '../components/forms/buildOrderForm';
-import { getOrders } from '../helpers/data/ordersData';
+import { createOrder, getOrders } from '../helpers/data/ordersData';
 import showOrders from '../components/showOrders';
 import viewOrder from '../components/viewOrder';
 import viewOrderDetails from '../helpers/data/mergedData';
@@ -11,6 +11,22 @@ const domEvents = (uid) => {
     // CLICK EVENT FOR SHOWING FORM FOR CREATING AN ORDER
     if (e.target.id.includes('create-order')) {
       buildOrderForm(uid);
+    }
+
+    // SUBMITTING A NEW ORDER
+    if (e.target.id.includes('submit-order')) {
+      e.preventDefault();
+      console.warn('Order submitted');
+      const newOrder = {
+        customername: document.querySelector('#orderName').value,
+        customerphone: document.querySelector('#customerPhone').value,
+        customeremail: document.querySelector('#customerEmail').value,
+        ordertype: document.querySelector('#orderType').value,
+        isClosed: false,
+        uid
+      };
+
+      createOrder(newOrder, uid).then(buildItemForm);
     }
 
     // CLICK EVENT FOR VIEWING ORDERS
@@ -30,8 +46,19 @@ const domEvents = (uid) => {
     }
 
     // CLICK EVENT FOR SUBMITTING NEW ITEM
-    if (e.target.id.includes()) {
-      addItem();
+    if (e.target.id.includes('submit-item')) {
+      console.warn('addingitem');
+      e.preventDefault();
+      const [, firebaseKey] = e.target.id.split('--');
+      const newItem = {
+        itemname: document.querySelector('#itemName').value,
+        itemprice: document.querySelector('#itemPrice').value,
+        // order_id: document.querySelector('#').value,
+        uid,
+        firebaseKey
+      };
+      addItem(newItem, uid);
+      viewOrderDetails(firebaseKey).then(viewOrder(firebaseKey));
     }
 
     // CLICK EVENT FOR VIEWING AN ORDER
