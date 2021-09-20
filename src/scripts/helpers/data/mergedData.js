@@ -1,4 +1,4 @@
-import orderItems from './itemsData';
+import { orderItems } from './itemsData';
 import { getSingleOrder } from './ordersData';
 
 // VIEW ORDER DETAILS
