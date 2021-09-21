@@ -2,10 +2,10 @@ import clearDom from '../helpers/clearDom';
 
 const viewOrder = (obj) => {
   clearDom();
-  const addedPrice = obj.items.reduce((total, item) => total + item.itemprice, 0);
+  const orderSum = obj.items.reduce((total, item) => total + item.itemprice, 0);
   document.querySelector('#detailsContainer').innerHTML += `
   <div id="orderTotal">
-  <h5>Order Total: $${addedPrice}<h5>`;
+  <h5>Order Total: $${orderSum}<h5>`;
 
   document.querySelector('#buttons-container').innerHTML = `
   <button type="button" class="btn btn-success" id="add-item-btn">Add Item</button>
