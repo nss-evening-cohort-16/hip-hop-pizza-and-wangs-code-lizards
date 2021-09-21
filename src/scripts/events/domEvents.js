@@ -63,25 +63,27 @@ const domEvents = (uid) => {
 
     // CLICK EVENT FOR OPENING ADD ITEM FORM
     if (e.target.id.includes('add-item')) {
-      buildItemForm(uid);
+      const [, firebaseKey] = e.target.id.split('--');
+      buildItemForm(firebaseKey);
     }
 
     // CLICK EVENT FOR SUBMITTING NEW ITEM
     if (e.target.id.includes('submit-item')) {
       console.warn('addingitem');
       e.preventDefault();
-      const [, firebaseKey] = e.target.id.split('--');
+      const [, orderId] = e.target.id.split('--');
+      console.warn(orderId);
       const newItem = {
         itemname: document.querySelector('#itemName').value,
         itemprice: document.querySelector('#itemPrice').value,
-        // order_id: document.querySelector('#').value,
-        uid,
-        firebaseKey
+        order_id: orderId,
+        uid
       };
       addItem(newItem, uid);
-      viewOrderDetails(firebaseKey).then(viewOrder(firebaseKey));
+      viewOrderDetails(orderId).then(viewOrder);
     }
 
+    // CLICK EVENT FOR DELETING AN ORDER
     if (e.target.id.includes('delete-order')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Delete Order?')) {
@@ -90,6 +92,7 @@ const domEvents = (uid) => {
       }
     }
 
+    // CLICK EVENT FOR DELETING AN ITEM
     if (e.target.id.includes('delete-item')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Delete Item from Order?')) {

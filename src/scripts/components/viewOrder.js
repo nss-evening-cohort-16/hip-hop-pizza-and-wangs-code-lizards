@@ -4,7 +4,7 @@ const viewOrder = (obj) => {
   clearDom();
 
   document.querySelector('#buttons-container').innerHTML = `
-  <button type="button" class="btn btn-success" id="add-item-btn">Add Item</button>
+  <button type="button" class="btn btn-success" id="add-item-btn--${obj.firebaseKey}">Add Item</button>
   <button type="button" class="btn btn-primary" id="payment-btn">Go To Payment</button>
   `;
 
