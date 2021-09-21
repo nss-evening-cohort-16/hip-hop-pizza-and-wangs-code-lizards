@@ -3,6 +3,11 @@ import clearDom from '../helpers/clearDom';
 const viewOrder = (obj) => {
   clearDom();
 
+  document.querySelector('#buttons-container').innerHTML = `
+  <button type="button" class="btn btn-success" id="add-item-btn">Add Item</button>
+  <button type="button" class="btn btn-primary" id="payment-btn">Go To Payment</button>
+  `;
+
   obj.items.forEach((item) => {
     document.querySelector('#detailsContainer').innerHTML += `
       <div class="card">
@@ -15,8 +20,6 @@ const viewOrder = (obj) => {
           <a id="delete-item--${item.firebaseKey}" href="#" class="card-link">Delete Item</a>
         </div>
       </div>
-      <button type="button" class="btn btn-success" id="add-item-btn">Add Item</button>
-      <button type="button" class="btn btn-primary" id="payment-btn">Go To Payment</button>
     `;
   });
 };
