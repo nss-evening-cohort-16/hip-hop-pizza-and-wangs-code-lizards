@@ -13,7 +13,7 @@ const buildItemForm = (orderId, obj = { }) => {
         <input type="text" class="form-control" id="itemPrice" value="${obj.itemprice || ''}">
       </div>
       </select>
-       <button type="submit" id="${obj.firebaseKey ? `update-item--${obj.firebaseKey}` : 'submit-item'}" class="btn btn-primary">Submit</button>
+       <button type="submit" id="${obj.firebaseKey ? `update-item--${obj.firebaseKey}` : `submit-item--${orderId}`}" class="btn btn-primary">Submit</button>
     </form>
     `;
 };
