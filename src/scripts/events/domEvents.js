@@ -28,7 +28,7 @@ const domEvents = (uid) => {
         customerphone: document.querySelector('#customerPhone').value,
         customeremail: document.querySelector('#customerEmail').value,
         ordertype: document.querySelector('#orderType').value,
-        isClosed: false,
+        orderstatus: 'Open',
         uid
       };
 
