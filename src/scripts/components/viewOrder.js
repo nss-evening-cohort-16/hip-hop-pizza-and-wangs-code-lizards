@@ -2,7 +2,9 @@ import clearDom from '../helpers/clearDom';
 
 const viewOrder = (obj) => {
   clearDom();
-
+  document.querySelector('#detailsContainer').innerHTML += `
+  <div id="orderTotal">
+  <h5>Order Total: $${obj.orderprice}<h5>`;
   obj.items.forEach((item) => {
     document.querySelector('#detailsContainer').innerHTML += `
       <div class="card">
