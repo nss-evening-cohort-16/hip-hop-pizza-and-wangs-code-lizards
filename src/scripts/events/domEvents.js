@@ -114,7 +114,7 @@ const domEvents = (uid) => {
     // CLICK EVENT FOR EDITING AN ITEM
     if (e.target.id.includes('edit-item')) {
       const [, firebaseKey] = e.target.id.split('--');
-      getSingleItem(firebaseKey).then(buildItemForm);
+      getSingleItem(firebaseKey).then((itemObj) => buildItemForm(itemObj.order_id, itemObj));
     }
 
     // // CLICK EVENT FOR UPDATING AN ITEM
@@ -127,7 +127,8 @@ const domEvents = (uid) => {
         firebaseKey
       };
 
-      updateItem(itemObject).then(viewOrder);
+      updateItem(itemObject);
+      getSingleItem(firebaseKey).then((itemObj) => viewOrderDetails(itemObj.order_id).then(viewOrder));
     }
 
     // CLICK EVENT FOR VIEWING REVENUE
