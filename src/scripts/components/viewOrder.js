@@ -4,7 +4,7 @@ const viewOrder = (obj) => {
   clearDom();
   document.querySelector('#detailsContainer').innerHTML += `
   <div id="orderTotal">
-  <h5>Order Total: $${obj.orderprice}<h5>`;
+  <h5>Order Total: $${obj.items[0].itemprice}<h5>`;
 
   document.querySelector('#buttons-container').innerHTML = `
   <button type="button" class="btn btn-success" id="add-item-btn">Add Item</button>
