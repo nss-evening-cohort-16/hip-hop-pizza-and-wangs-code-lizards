@@ -1,7 +1,7 @@
 // API CALLS FOR ITEMS
 import axios from 'axios';
 import firebaseConfig from '../../../api/apiKeys';
-import getOrders from './ordersData';
+import { getOrders } from './ordersData';
 
 const dbUrl = firebaseConfig.databaseURL;
 
