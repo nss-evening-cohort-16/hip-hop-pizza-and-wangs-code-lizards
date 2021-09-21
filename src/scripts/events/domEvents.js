@@ -14,7 +14,7 @@ import {
   addItem,
   deleteItem,
   getSingleItem,
-  updateItems
+  updateItem
 } from '../helpers/data/itemsData';
 
 const domEvents = (uid) => {
@@ -63,7 +63,7 @@ const domEvents = (uid) => {
         firebaseKey
       };
 
-      updateOrder(orderObject).then(showOrders);
+      updateOrder(orderObject, uid).then(showOrders);
     }
 
     // CLICK EVENT FOR OPENING ADD ITEM FORM
@@ -124,8 +124,7 @@ const domEvents = (uid) => {
         firebaseKey
       };
 
-      updateItems(itemObject);
-      // .then(showItems);
+      updateItem(itemObject).then(viewOrder);
     }
 
     // CLICK EVENT FOR VIEWING REVENUE
