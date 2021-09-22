@@ -2,6 +2,10 @@ import clearDom from '../helpers/clearDom';
 
 const viewOrder = (obj) => {
   clearDom();
+  const orderSum = obj.items.reduce((total, item) => total + item.itemprice, 0);
+  document.querySelector('#detailsContainer').innerHTML += `
+  <div id="orderTotal">
+  <h5>Order Total: $${orderSum}<h5>`;
 
   document.querySelector('#buttons-container').innerHTML = `
   <button type="button" class="btn btn-success" id="add-item-btn--${obj.firebaseKey}">Add Item</button>
@@ -17,7 +21,7 @@ const viewOrder = (obj) => {
         </div>
         <div class="mt-5">
           <a id="edit-item--${item.firebaseKey}" href="#" class="card-link">Edit Item</a>
-          <a id="delete-item--${item.firebaseKey}" href="#" class="card-link">Delete Item</a>
+          <a id="delete-item--${item.firebaseKey}--${item.order_id}" href="#" class="card-link">Delete Item</a>
         </div>
       </div>
     `;
