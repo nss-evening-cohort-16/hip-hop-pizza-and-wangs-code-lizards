@@ -12,6 +12,13 @@ const getItems = (orderId) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// UPDATE ITEMS
+const updateItem = (itemObj) => new Promise((resolve, reject) => {
+  axios.patch(`${dbUrl}/items/${itemObj.firebaseKey}.json`, itemObj)
+    .then(() => getItems(itemObj.uid).then(resolve))
+    .catch(reject);
+});
+
 // GET A SINGLE ITEM
 const getSingleItem = (firebaseKey) => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/items/${firebaseKey}.json`)
@@ -42,5 +49,6 @@ export {
   getItems,
   getSingleItem,
   addItem,
-  deleteItem
+  deleteItem,
+  updateItem
 };
