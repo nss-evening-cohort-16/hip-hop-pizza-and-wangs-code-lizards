@@ -5,7 +5,6 @@ import { getSingleOrder } from './ordersData';
 const viewOrderDetails = async (firebaseKey) => {
   const order = await getSingleOrder(firebaseKey);
   const items = await getItems(firebaseKey);
-  console.warn(order);
   return ({
     items,
     ...order

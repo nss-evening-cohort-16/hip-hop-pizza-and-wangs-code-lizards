@@ -10,7 +10,7 @@ import showOrders from '../components/showOrders';
 import viewOrder from '../components/viewOrder';
 import viewOrderDetails from '../helpers/data/mergedData';
 import buildItemForm from '../components/forms/buildItemForm';
-import { addItem, deleteItem } from '../helpers/data/itemsData';
+import { addItem, deleteItem, getSingleItem } from '../helpers/data/itemsData';
 
 const domEvents = (uid) => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -32,7 +32,7 @@ const domEvents = (uid) => {
         uid
       };
 
-      createOrder(newOrder, uid).then(buildItemForm);
+      createOrder(newOrder, uid).then(showOrders);
     }
 
     // CLICK EVENT FOR VIEWING ORDERS
@@ -75,7 +75,7 @@ const domEvents = (uid) => {
       console.warn(orderId);
       const newItem = {
         itemname: document.querySelector('#itemName').value,
-        itemprice: document.querySelector('#itemPrice').value,
+        itemprice: Number(document.querySelector('#itemPrice').value),
         order_id: orderId,
         uid
       };
@@ -97,7 +97,8 @@ const domEvents = (uid) => {
       // eslint-disable-next-line no-alert
       if (window.confirm('Delete Item from Order?')) {
         const [, id] = e.target.id.split('--');
-        deleteItem(id, uid).then(viewOrder);
+        deleteItem(id, uid);
+        getSingleItem(id).then((itemObj) => viewOrderDetails(itemObj.order_id).then(viewOrder));
       }
     }
     // CLICK EVENT FOR VIEWING AN ORDER

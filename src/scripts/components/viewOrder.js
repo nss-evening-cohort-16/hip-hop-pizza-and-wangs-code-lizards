@@ -2,13 +2,14 @@ import clearDom from '../helpers/clearDom';
 
 const viewOrder = (obj) => {
   clearDom();
+  console.warn(obj.items);
   const orderSum = obj.items.reduce((total, item) => total + item.itemprice, 0);
   document.querySelector('#detailsContainer').innerHTML += `
   <div id="orderTotal">
   <h5>Order Total: $${orderSum}<h5>`;
 
   document.querySelector('#buttons-container').innerHTML = `
-  <button type="button" class="btn btn-success" id="add-item-btn">Add Item</button>
+  <button type="button" class="btn btn-success" id="add-item-btn--${obj.firebaseKey}">Add Item</button>
   <button type="button" class="btn btn-primary" id="payment-btn">Go To Payment</button>
   `;
 
