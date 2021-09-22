@@ -18,6 +18,7 @@ The user for this app is an employee of Hip Hop, Pizza, and Wangs. The user is a
 
 ## Video Walkthrough
 ## Relevant Links
+* **[Deployed Site](https://app.netlify.com/sites/code-lizards-pizza/deploys)**
 * **[Wireframes](https://www.figma.com/file/4y3EZddALuBR3ouSEM57Np/MVP?node-id=0%3A1)**
 * **[Data Diagram](https://dbdiagram.io/d/613ff601825b5b014600799c)**
 * **[Project Board](https://github.com/nss-evening-cohort-16/hip-hop-pizza-and-wangs-code-lizards/projects/1)**
