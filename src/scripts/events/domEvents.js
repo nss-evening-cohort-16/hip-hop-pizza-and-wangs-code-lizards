@@ -37,7 +37,7 @@ const domEvents = (uid) => {
         uid
       };
 
-      createOrder(newOrder, uid).then(buildItemForm);
+      createOrder(newOrder, uid).then(showOrders);
     }
 
     // CLICK EVENT FOR VIEWING ORDERS
@@ -80,12 +80,11 @@ const domEvents = (uid) => {
       console.warn(orderId);
       const newItem = {
         itemname: document.querySelector('#itemName').value,
-        itemprice: document.querySelector('#itemPrice').value,
+        itemprice: Number(document.querySelector('#itemPrice').value),
         order_id: orderId,
         uid
       };
-      addItem(newItem, uid)
-      viewOrderDetails(orderId).then(viewOrder);
+      addItem(newItem, uid).then(() => viewOrderDetails(orderId).then(viewOrder));
     }
 
     // CLICK EVENT FOR DELETING AN ORDER
@@ -101,8 +100,9 @@ const domEvents = (uid) => {
     if (e.target.id.includes('delete-item')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Delete Item from Order?')) {
-        const [, id] = e.target.id.split('--');
-        deleteItem(id, uid).then(viewOrder);
+        const [, id, orderId] = e.target.id.split('--');
+        deleteItem(id, uid);
+        viewOrderDetails(orderId).then(viewOrder);
       }
     }
     // CLICK EVENT FOR VIEWING AN ORDER
