@@ -100,9 +100,9 @@ const domEvents = (uid) => {
     if (e.target.id.includes('delete-item')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Delete Item from Order?')) {
-        const [, id] = e.target.id.split('--');
+        const [, id, orderId] = e.target.id.split('--');
         deleteItem(id, uid);
-        getSingleItem(id).then((itemObj) => viewOrderDetails(itemObj.order_id).then(viewOrder));
+        viewOrderDetails(orderId).then(viewOrder);
       }
     }
     // CLICK EVENT FOR VIEWING AN ORDER
