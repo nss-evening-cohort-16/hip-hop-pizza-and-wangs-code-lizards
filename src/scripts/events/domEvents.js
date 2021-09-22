@@ -3,13 +3,8 @@ import {
   getSingleOrder,
   updateOrder,
   createOrder,
-<<<<<<< HEAD
-  deleteOrder,
   getOrders,
   closeOrder
-=======
-  getOrders
->>>>>>> main
 } from '../helpers/data/ordersData';
 import showOrders from '../components/showOrders';
 import viewOrder from '../components/viewOrder';
@@ -18,6 +13,7 @@ import buildItemForm from '../components/forms/buildItemForm';
 import { addItem, deleteItem } from '../helpers/data/itemsData';
 import buildPaymentForm from '../components/forms/buildPaymentForm';
 import paymentSubmitted from '../components/paymentSubmitted';
+import createPayment from '../helpers/data/paymentData';
 
 const domEvents = (uid) => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -128,6 +124,7 @@ const domEvents = (uid) => {
         orderdate: Date()
       };
       console.warn(newOrder);
+      createPayment(newOrder);
       closeOrder(firebaseKey).then(paymentSubmitted);
     }
     // RETURN AFTER A PAYMENT
