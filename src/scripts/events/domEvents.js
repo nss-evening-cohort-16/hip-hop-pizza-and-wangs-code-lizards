@@ -3,12 +3,11 @@ import {
   getSingleOrder,
   updateOrder,
   createOrder,
-  deleteOrder,
   getOrders
 } from '../helpers/data/ordersData';
 import showOrders from '../components/showOrders';
 import viewOrder from '../components/viewOrder';
-import viewOrderDetails from '../helpers/data/mergedData';
+import { deleteOrderItems, viewOrderDetails } from '../helpers/data/mergedData';
 import buildItemForm from '../components/forms/buildItemForm';
 import {
   addItem,
@@ -92,7 +91,7 @@ const domEvents = (uid) => {
       // eslint-disable-next-line no-alert
       if (window.confirm('Delete Order?')) {
         const [, id] = e.target.id.split('--');
-        deleteOrder(id, uid).then(showOrders);
+        deleteOrderItems(id, uid).then(() => getOrders(uid).then(showOrders));
       }
     }
 
