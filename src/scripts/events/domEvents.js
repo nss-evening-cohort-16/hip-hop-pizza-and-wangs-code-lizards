@@ -79,7 +79,7 @@ const domEvents = (uid) => {
         order_id: orderId,
         uid
       };
-      addItem(newItem, uid);
+      addItem(newItem, uid)
       viewOrderDetails(orderId).then(viewOrder);
     }
 
