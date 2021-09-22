@@ -10,12 +10,9 @@ import showOrders from '../components/showOrders';
 import viewOrder from '../components/viewOrder';
 import viewOrderDetails from '../helpers/data/mergedData';
 import buildItemForm from '../components/forms/buildItemForm';
-import {
-  addItem,
-  deleteItem,
-  getSingleItem,
-  updateItem
-} from '../helpers/data/itemsData';
+import { addItem, deleteItem } from '../helpers/data/itemsData';
+import buildPaymentForm from '../components/forms/buildPaymentForm';
+import paymentSubmitted from '../components/paymentSubmitted';
 
 const domEvents = (uid) => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -63,7 +60,7 @@ const domEvents = (uid) => {
         firebaseKey
       };
 
-      updateOrder(orderObject, uid).then(showOrders);
+      updateOrder(orderObject).then(showOrders);
     }
 
     // CLICK EVENT FOR OPENING ADD ITEM FORM
@@ -110,27 +107,28 @@ const domEvents = (uid) => {
       const [, firebaseKey] = e.target.id.split('--');
       viewOrderDetails(firebaseKey).then(viewOrder);
     }
-
-    // CLICK EVENT FOR EDITING AN ITEM
-    if (e.target.id.includes('edit-item')) {
+    // CLICK EVENT FOR VIEWING PAYMENT FORM OF AN ORDER
+    if (e.target.id.includes('payment-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
-      getSingleItem(firebaseKey).then((itemObj) => buildItemForm(itemObj.order_id, itemObj));
+      getSingleOrder(firebaseKey).then(buildPaymentForm);
     }
-
-    // // CLICK EVENT FOR UPDATING AN ITEM
-    if (e.target.id.includes('update-item')) {
+    // SUBMITTING AN ORDER
+    if (e.target.id.includes('close-order')) {
       e.preventDefault();
       const [, firebaseKey] = e.target.id.split('--');
-      const itemObject = {
-        itemname: document.querySelector('#itemName').value,
-        itemprice: document.querySelector('#itemPrice').value,
-        firebaseKey
+      const newOrder = {
+        orderprice: firebaseKey,
+        ordertip: Number(document.querySelector('#tip-amount').value),
+        ordertype: document.querySelector('#order-type').value,
+        orderdate: Date()
       };
-
-      updateItem(itemObject);
-      getSingleItem(firebaseKey).then((itemObj) => viewOrderDetails(itemObj.order_id).then(viewOrder));
+      console.warn(newOrder);
+      paymentSubmitted();
     }
-
+    // RETURN AFTER A PAYMENT
+    if (e.target.id.includes('return-btn')) {
+      getOrders(uid).then(showOrders);
+    }
     // CLICK EVENT FOR VIEWING REVENUE
     if (e.target.id.includes('view-revenue')) {
       console.warn('View Revenue');

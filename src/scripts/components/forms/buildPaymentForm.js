@@ -1,21 +1,23 @@
 import clearDom from '../../helpers/clearDom';
 
-const buildPaymentForm = () => {
+const buildPaymentForm = (obj) => {
   clearDom();
+  console.warn(obj);
   document.querySelector('#formContainer').innerHTML = `
+    <h1 id=order-total> Order Total: $${obj.customername}</h1>
         <form id="payment-form" class="mb-4">
             <div class="form-group">
                 <label for="payment-type">Payment Type</label>
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" id=order-type aria-label="Default select example">
                     <option selected>Select Payment Type</option>
-                    <option value="1">Cash</option>
-                    <option value="2">Card</option>
+                    <option value="Cash">Cash</option>
+                    <option value="Card">Card</option>
                 </select>
              <div class="form-group">
                 <label for="tip-amount">Tip Amount</label>
                 <input type="text" class="form-control" id="tip-amount" placeholder="" value="" required>
             </div>
-            <button type="submit" id="close-order" class="btn btn-success">Close Order</button>
+            <button type="submit" id="close-order--${obj.firebaseKey}" class="btn btn-success">Close Order</button>
         </form>
     `;
 };
