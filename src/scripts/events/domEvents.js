@@ -114,7 +114,7 @@ const domEvents = (uid) => {
       getSingleOrder(firebaseKey).then(buildPaymentForm);
     }
     // SUBMITTING AN ORDER
-    if (e.target.id.includes('close-order')) {
+    if (e.target.id.includes('close-payment')) {
       e.preventDefault();
       const [, firebaseKey] = e.target.id.split('--');
       const newOrder = {
