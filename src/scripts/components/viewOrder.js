@@ -2,7 +2,6 @@ import clearDom from '../helpers/clearDom';
 
 const viewOrder = (obj) => {
   clearDom();
-  console.warn(obj.items);
   const orderSum = obj.items.reduce((total, item) => total + item.itemprice, 0);
   document.querySelector('#detailsContainer').innerHTML += `
   <div id="orderTotal">
