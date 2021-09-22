@@ -37,4 +37,14 @@ body {
       height: auto;
     }
   }
+
+  #orderContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+
+    .order-cards {
+      margin: 10px;
+    }
+  }
 }

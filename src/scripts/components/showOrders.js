@@ -5,7 +5,7 @@ const showOrders = (array) => {
 
   array.forEach((order) => {
     document.querySelector('#orderContainer').innerHTML += `
-        <div class="card" style="width: 18rem;">
+        <div class="card order-cards" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">${order.customername}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Order Status: ${order.orderstatus}</h6>
