@@ -4,7 +4,8 @@ import {
   updateOrder,
   createOrder,
   deleteOrder,
-  getOrders
+  getOrders,
+  closeOrder
 } from '../helpers/data/ordersData';
 import showOrders from '../components/showOrders';
 import viewOrder from '../components/viewOrder';
@@ -123,7 +124,7 @@ const domEvents = (uid) => {
         orderdate: Date()
       };
       console.warn(newOrder);
-      paymentSubmitted();
+      closeOrder(firebaseKey).then(paymentSubmitted);
     }
     // RETURN AFTER A PAYMENT
     if (e.target.id.includes('return-btn')) {

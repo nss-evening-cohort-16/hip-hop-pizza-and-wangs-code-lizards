@@ -18,6 +18,17 @@ const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// CLOSE ORDER
+const closeOrder = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/orders/${firebaseKey}.json`)
+    .then(() => {
+      const newStatus = { orderstatus: 'Closed' };
+      axios.patch(`${dbUrl}/orders/${firebaseKey}.json`, newStatus);
+    })
+    .then(() => resolve())
+    .catch(reject);
+});
+
 // DELETE ORDER
 const deleteOrder = (firebaseKey, uid) => new Promise((resolve, reject) => {
   axios.delete(`${dbUrl}/orders/${firebaseKey}.json`)
@@ -57,5 +68,6 @@ export {
   createOrder,
   updateOrder,
   deleteOrder,
-  getSingleOrder
+  getSingleOrder,
+  closeOrder
 };
