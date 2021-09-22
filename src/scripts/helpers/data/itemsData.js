@@ -20,13 +20,13 @@ const getSingleItem = (firebaseKey) => new Promise((resolve, reject) => {
 });
 
 // ADD ITEM
-const addItem = (itemObj) => new Promise((resolve, reject) => {
+const addItem = (itemObj, uid) => new Promise((resolve, reject) => {
   axios.post(`${dbUrl}/items.json`, itemObj)
     .then((response) => {
       const body = { firebaseKey: response.data.name };
       axios.patch(`${dbUrl}/items/${response.data.name}.json`, body)
         .then(() => {
-          getItems(itemObj.uid).then(resolve);
+          getItems(uid).then(resolve);
         });
     }).catch(reject);
 });
