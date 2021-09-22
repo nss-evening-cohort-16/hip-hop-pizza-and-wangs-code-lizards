@@ -79,8 +79,7 @@ const domEvents = (uid) => {
         order_id: orderId,
         uid
       };
-      addItem(newItem, uid);
-      viewOrderDetails(orderId).then(viewOrder);
+      addItem(newItem, uid).then(() => viewOrderDetails(orderId).then(viewOrder));
     }
 
     // CLICK EVENT FOR DELETING AN ORDER
