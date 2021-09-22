@@ -10,7 +10,12 @@ import showOrders from '../components/showOrders';
 import viewOrder from '../components/viewOrder';
 import viewOrderDetails from '../helpers/data/mergedData';
 import buildItemForm from '../components/forms/buildItemForm';
-import { addItem, deleteItem, getSingleItem } from '../helpers/data/itemsData';
+import {
+  addItem,
+  deleteItem,
+  getSingleItem,
+  updateItem
+} from '../helpers/data/itemsData';
 
 const domEvents = (uid) => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -58,7 +63,7 @@ const domEvents = (uid) => {
         firebaseKey
       };
 
-      updateOrder(orderObject).then(showOrders);
+      updateOrder(orderObject, uid).then(showOrders);
     }
 
     // CLICK EVENT FOR OPENING ADD ITEM FORM
@@ -104,6 +109,26 @@ const domEvents = (uid) => {
     if (e.target.id.includes('order-details')) {
       const [, firebaseKey] = e.target.id.split('--');
       viewOrderDetails(firebaseKey).then(viewOrder);
+    }
+
+    // CLICK EVENT FOR EDITING AN ITEM
+    if (e.target.id.includes('edit-item')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleItem(firebaseKey).then((itemObj) => buildItemForm(itemObj.order_id, itemObj));
+    }
+
+    // // CLICK EVENT FOR UPDATING AN ITEM
+    if (e.target.id.includes('update-item')) {
+      e.preventDefault();
+      const [, firebaseKey] = e.target.id.split('--');
+      const itemObject = {
+        itemname: document.querySelector('#itemName').value,
+        itemprice: document.querySelector('#itemPrice').value,
+        firebaseKey
+      };
+
+      updateItem(itemObject);
+      getSingleItem(firebaseKey).then((itemObj) => viewOrderDetails(itemObj.order_id).then(viewOrder));
     }
 
     // CLICK EVENT FOR VIEWING REVENUE
