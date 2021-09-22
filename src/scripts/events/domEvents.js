@@ -37,7 +37,7 @@ const domEvents = (uid) => {
         uid
       };
 
-      createOrder(newOrder, uid).then(buildItemForm);
+      createOrder(newOrder, uid).then(showOrders);
     }
 
     // CLICK EVENT FOR VIEWING ORDERS
