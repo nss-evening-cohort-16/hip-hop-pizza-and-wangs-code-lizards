@@ -111,7 +111,7 @@ const domEvents = (uid) => {
       const [, firebaseKey] = e.target.id.split('--');
       const itemObject = {
         itemname: document.querySelector('#itemName').value,
-        itemprice: document.querySelector('#itemPrice').value,
+        itemprice: Number(document.querySelector('#itemPrice').value),
         firebaseKey
       };
       updateItem(itemObject);
