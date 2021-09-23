@@ -63,6 +63,16 @@ const getOrderPrice = (firebaseKey) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+// FILTER ORDERS BY ORDERSTATUS
+const filterOrders = (userId, orderStatus) => new Promise((resolve, reject) => {
+  getOrders(userId)
+    .then((orders) => {
+      const selectedOrders = orders.filter((order) => (order.orderstatus === orderStatus));
+      resolve(selectedOrders);
+    })
+    .catch(reject);
+});
+
 export {
   getOrders,
   createOrder,
@@ -70,5 +80,6 @@ export {
   deleteOrder,
   getSingleOrder,
   closeOrder,
-  getOrderPrice
+  getOrderPrice,
+  filterOrders
 };
