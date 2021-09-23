@@ -10,14 +10,24 @@ body {
 }
 
 #navBar {
-
   .nav-logo {
     width: 80px;
     height: auto;
   }
 
+  #google-auth {
+    // margin-left: 800px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 30px;
+  }
+
   .search-logout {
-    margin-left: 800px;
+    position: absolute;
+    right: 100px;
+    top: 0;
+    margin: 30px;
   }
 }
 
@@ -42,9 +52,26 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
+    margin: 10px;
 
     .order-cards {
       margin: 10px;
+    }
+
+    a:link {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+
+  #detailsContainer{
+    .card {
+      width: 80%;
+      align-items: center;
+      margin: auto;
     }
   }
 }
