@@ -32,6 +32,13 @@ body {
 }
 
 #mainContainer {
+  a:link {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
 
   #buttons-container {
     align-items: center;
@@ -57,21 +64,26 @@ body {
     .order-cards {
       margin: 10px;
     }
-
-    a:link {
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
   }
 
   #detailsContainer{
     .card {
       width: 80%;
       align-items: center;
-      margin: auto;
+      margin: 20px auto;
+    }
+  }
+
+  #formContainer {
+    width: 80%;
+    margin: auto;
+
+    .mb-3 {
+      text-align: left;
+    }
+
+    .form-select {
+      margin-bottom: 20px;
     }
   }
 }
