@@ -2,17 +2,19 @@ import clearDom from '../../helpers/clearDom';
 
 const buildPaymentForm = (obj) => {
   clearDom();
+  const orderSum = obj.items.reduce((total, item) => total + item.itemprice, 0);
   document.querySelector('#formContainer').innerHTML = `
+    <h1 id=order-total>${orderSum}</h1>
         <form id="payment-form" class="mb-4">
             <div class="form-group">
                 <label for="payment-type">Payment Type</label>
-                <select class="form-select" aria-label="Default select example" value="${obj.paymenttype || ''}">
+                <select class="form-select" id="order-type" aria-label="Default select example" value="${obj.paymenttype || ''}">
                     <option selected>Select Payment Type</option>
-                    <option value="1">Cash</option>
-                    <option value="2">Check</option>
-                    <option value="3">Debit</option>
-                    <option value="4">Credit</option>
-                    <option value="5">Mobile Payment</option>
+                    <option value="Cash">Cash</option>
+                    <option value="Check">Check</option>
+                    <option value="Debit">Debit</option>
+                    <option value="Credit">Credit</option>
+                    <option value="Mobile Payment">Mobile Payment</option>
                 </select>
              <div class="form-group">
                 <label for="tip-amount">Tip Amount</label>
