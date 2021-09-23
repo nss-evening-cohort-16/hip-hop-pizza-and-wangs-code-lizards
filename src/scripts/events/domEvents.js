@@ -66,7 +66,7 @@ const domEvents = (uid) => {
         firebaseKey
       };
 
-      updateOrder(orderObject).then(showOrders);
+      updateOrder(orderObject, uid).then(showOrders);
     }
 
     // CLICK EVENT FOR OPENING ADD ITEM FORM

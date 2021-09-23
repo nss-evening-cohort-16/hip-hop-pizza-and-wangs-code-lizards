@@ -15,13 +15,13 @@ const viewOrder = (obj) => {
   obj.items.forEach((item) => {
     document.querySelector('#detailsContainer').innerHTML += `
       <div class="card">
-        <div class="card-body" style="height: 124px;">
+        <div class="card-body">
           <h5 class="card-title">${item.itemname}</h5>
           <h5>PRICE: $${item.itemprice}</h5>
-        </div>
-        <div class="mt-5">
-          <a id="edit-item--${item.firebaseKey}" href="#" class="card-link">Edit Item</a>
-          <a id="delete-item--${item.firebaseKey}--${item.order_id}" href="#" class="card-link">Delete Item</a>
+          <div class="mt-5">
+            <a id="edit-item--${item.firebaseKey}" href="#" class="card-link">Edit Item</a>
+            <a id="delete-item--${item.firebaseKey}--${item.order_id}" href="#" class="card-link" style="color: #FF0000;">Delete Item</a>
+          </div>
         </div>
       </div>
     `;

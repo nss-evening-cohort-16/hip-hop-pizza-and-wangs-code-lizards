@@ -1,7 +1,7 @@
 const navBar = () => {
   document.querySelector('#navBar').innerHTML = `
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-4">
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="navbar-collapse" id="navbarNav">
     <a id="home" href="#">
       <img class="nav-logo" src="https://raw.githubusercontent.com/nss-evening-cohort-16/hip-hop-pizza-and-wangs-code-lizards/main/instructions/hhpw-record.png" alt="pizza-logo">
     </a>
@@ -14,7 +14,7 @@ const navBar = () => {
         </li>
         <div class="search-logout">
         <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control me-2" type="search" placeholder="Search Orders" aria-label="Search">
       </form>
         </ul>
         <div id="logout-button" class="logout"></div>
