@@ -4,7 +4,7 @@ import {
   updateOrder,
   createOrder,
   getOrders,
-  closeOrder
+  closeOrder,
 } from '../helpers/data/ordersData';
 import showOrders from '../components/showOrders';
 import viewOrder from '../components/viewOrder';
@@ -111,21 +111,21 @@ const domEvents = (uid) => {
     // CLICK EVENT FOR VIEWING PAYMENT FORM OF AN ORDER
     if (e.target.id.includes('payment-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
-      getSingleOrder(firebaseKey).then(buildPaymentForm);
+      viewOrderDetails(firebaseKey).then(buildPaymentForm);
     }
-    // SUBMITTING AN ORDER
+    // CLOSE PAYMENT
     if (e.target.id.includes('close-payment')) {
       e.preventDefault();
       const [, firebaseKey] = e.target.id.split('--');
       const newOrder = {
-        orderprice: firebaseKey,
+        orderprice: Number(document.querySelector('#order-total').innerHTML),
         ordertip: Number(document.querySelector('#tip-amount').value),
         ordertype: document.querySelector('#order-type').value,
-        orderdate: Date()
+        orderdate: Date(),
+        order_id: firebaseKey,
+        uid
       };
-      console.warn(newOrder);
-      createPayment(newOrder);
-      closeOrder(firebaseKey).then(paymentSubmitted);
+      createPayment(newOrder).then(() => closeOrder(firebaseKey)).then(paymentSubmitted);
     }
     // RETURN AFTER A PAYMENT
     if (e.target.id.includes('return-btn')) {

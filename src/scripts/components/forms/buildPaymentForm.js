@@ -2,9 +2,9 @@ import clearDom from '../../helpers/clearDom';
 
 const buildPaymentForm = (obj) => {
   clearDom();
-  console.warn(obj);
+  const orderSum = obj.items.reduce((total, item) => total + item.itemprice, 0);
   document.querySelector('#formContainer').innerHTML = `
-    <h1 id=order-total> Order Total: $${obj.customername}</h1>
+    <h1 id=order-total>${orderSum}</h1>
         <form id="payment-form" class="mb-4">
             <div class="form-group">
                 <label for="payment-type">Payment Type</label>
