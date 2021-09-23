@@ -14,7 +14,7 @@ const navBar = () => {
         </li>
         <div class="search-logout">
         <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control me-2" type="search" placeholder="Search Orders" aria-label="Search">
       </form>
         </ul>
         <div id="logout-button" class="logout"></div>
