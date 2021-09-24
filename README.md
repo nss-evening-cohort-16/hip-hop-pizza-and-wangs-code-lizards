@@ -4,7 +4,7 @@
 <image src="./instructions/hhpw-record.png" style="height:300px;"></image></div>
 
 ## Overview
-Hip Hop Pizza and Wangs is a restaurant that has received an influx of to-go orders due to the pandamic. This app is a Point of Sale web app designed to aid the restaurant in an easy and efficient way in tracking these orders. 
+Hip Hop Pizza and Wangs is a restaurant that has received an influx of to-go orders due to the pandemic. This app is a Point of Sale web app designed to aid the restaurant in an easy and efficient way in tracking these orders. 
 ## About the User
 The user for this app is an employee of Hip Hop, Pizza, and Wangs. The user is able to create orders, add menu items to the orders, and close orders out; as well as track the revenue of the restaurant. 
 ## Features
