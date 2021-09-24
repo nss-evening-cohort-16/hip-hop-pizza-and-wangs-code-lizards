@@ -4,11 +4,11 @@ import firebaseConfig from '../../../api/apiKeys';
 
 const dbUrl = firebaseConfig.databaseURL;
 
-// const getPayments = (userId) => new Promise((resolve, reject) => {
-//   axios.get(`${dbUrl}/payments.json?orderBy="uid"&equalTo="${userId}"`)
-//     .then((response) => resolve(Object.values(response.data)))
-//     .catch((error) => reject(error));
-// });
+const getPayments = (userId) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/payments.json?orderBy="uid"&equalTo="${userId}"`)
+    .then((response) => resolve(Object.values(response.data)))
+    .catch((error) => reject(error));
+});
 
 const createPayment = (paymentObj) => new Promise((resolve, reject) => {
   axios
@@ -22,4 +22,4 @@ const createPayment = (paymentObj) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export default createPayment;
+export { getPayments, createPayment };
