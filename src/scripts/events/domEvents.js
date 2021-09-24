@@ -8,7 +8,7 @@ import {
 } from '../helpers/data/ordersData';
 import showOrders from '../components/showOrders';
 import viewOrder from '../components/viewOrder';
-import { deleteOrderItems, viewOrderDetails } from '../helpers/data/mergedData';
+import { deleteOrderItems, viewOrderDetails, viewOrderRevenue } from '../helpers/data/mergedData';
 import buildItemForm from '../components/forms/buildItemForm';
 import {
   addItem,
@@ -18,7 +18,9 @@ import {
 } from '../helpers/data/itemsData';
 import buildPaymentForm from '../components/forms/buildPaymentForm';
 import paymentSubmitted from '../components/paymentSubmitted';
-import createPayment from '../helpers/data/paymentData';
+import { createPayment } from '../helpers/data/paymentData';
+import viewRevenue from '../components/showRevenue';
+// import viewRevenue from '../components/showRevenue';
 
 const domEvents = (uid) => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -157,6 +159,7 @@ const domEvents = (uid) => {
     }
     // CLICK EVENT FOR VIEWING REVENUE
     if (e.target.id.includes('view-revenue')) {
+      viewOrderRevenue(uid).then(viewRevenue);
       console.warn('View Revenue');
     }
   });
