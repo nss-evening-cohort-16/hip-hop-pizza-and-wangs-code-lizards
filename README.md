@@ -1,5 +1,5 @@
 <div style="text-align:center">
-<h1>Hip Hop, Pizza, and Wangs [![Netlify Status](https://api.netlify.com/api/v1/badges/79b922b2-28ca-4630-beeb-886920dc00a8/deploy-status)](https://app.netlify.com/sites/code-lizards-pizza/deploys)</h1>
+<h1>Hip Hop, Pizza, and Wangs</h1> [![Netlify Status](https://api.netlify.com/api/v1/badges/79b922b2-28ca-4630-beeb-886920dc00a8/deploy-status)](https://app.netlify.com/sites/code-lizards-pizza/deploys)
 
 <image src="./instructions/hhpw-record.png" style="height:300px;"></image></div>
 
@@ -26,7 +26,7 @@ The user for this app is an employee of Hip Hop, Pizza, and Wangs. The user is a
 
 ## Code Snippet
 
-`    
+```    
 // CLICK EVENT FOR SUBMITTING NEW ITEM
     if (e.target.id.includes('submit-item')) {
       console.warn('addingitem');
@@ -42,7 +42,7 @@ The user for this app is an employee of Hip Hop, Pizza, and Wangs. The user is a
       addItem(newItem, uid);
       viewOrderDetails(orderId).then(viewOrder);
     }
-`
+```
 ## Project Screenshots
 
 ## Contributers
