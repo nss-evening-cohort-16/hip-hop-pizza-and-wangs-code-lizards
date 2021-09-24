@@ -3,6 +3,14 @@ import clearDom from '../helpers/clearDom';
 const showOrders = (array) => {
   clearDom();
 
+  document.querySelector('#buttons-container').innerHTML = `
+  <div class="btn-group" role="group" aria-label="Basic example">
+  <button type="button" class="btn btn-primary" id="all-btn">All</button>
+  <button type="button" class="btn btn-warning" id="open-btn">Open</button>
+  <button type="button" class="btn btn-success" id="closed-btn">Closed</button>
+  </div>
+  `;
+
   array.forEach((order) => {
     document.querySelector('#orderContainer').innerHTML += `
         <div class="card order-cards" style="width: 18rem;">

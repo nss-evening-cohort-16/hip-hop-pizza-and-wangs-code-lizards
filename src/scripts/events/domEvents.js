@@ -5,6 +5,7 @@ import {
   createOrder,
   getOrders,
   closeOrder,
+  filterOrders,
 } from '../helpers/data/ordersData';
 import showOrders from '../components/showOrders';
 import viewOrder from '../components/viewOrder';
@@ -161,6 +162,23 @@ const domEvents = (uid) => {
     if (e.target.id.includes('view-revenue')) {
       viewOrderRevenue(uid).then(viewRevenue);
       console.warn('View Revenue');
+    }
+    // FILTER OPEN AND CLOSED BUTTONS
+    if (e.target.id.includes('all-btn')) {
+      console.warn('All Orders Button Clicked');
+      getOrders(uid).then(showOrders);
+    }
+    if (e.target.id.includes('open-btn')) {
+      console.warn('Open Orders Button Clicked');
+      const openOrders = document.querySelector('#open-btn').innerHTML;
+      console.warn(openOrders);
+      filterOrders(uid, openOrders).then(showOrders);
+    }
+    if (e.target.id.includes('closed-btn')) {
+      console.warn('Closed Orders Button Clicked');
+      const openOrders = document.querySelector('#closed-btn').innerHTML;
+      console.warn(openOrders);
+      filterOrders(uid, openOrders).then(showOrders);
     }
   });
 };
