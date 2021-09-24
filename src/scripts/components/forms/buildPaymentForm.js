@@ -9,14 +9,13 @@ const buildPaymentForm = (obj) => {
             <div class="form-group">
                 <label for="payment-type">Payment Type</label>
                 <select class="form-select" id="order-type" aria-label="Default select example" value="${obj.paymenttype || ''}">
-                    <option selected>Select Payment Type</option>
+                    <option disabled selected>${obj.paymenttype || 'Select Payment Type'}</option>
                     <option value="Cash">Cash</option>
                     <option value="Check">Check</option>
                     <option value="Debit">Debit</option>
                     <option value="Credit">Credit</option>
                     <option value="Mobile Payment">Mobile Payment</option>
                 </select>
-             <div class="form-group">
                 <label for="tip-amount">Tip Amount</label>
                 <input type="text" class="form-control" id="tip-amount" placeholder="" value="${obj.ordertip || ''}" required>
             </div>
