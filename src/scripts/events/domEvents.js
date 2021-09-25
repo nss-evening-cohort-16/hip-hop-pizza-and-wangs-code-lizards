@@ -138,6 +138,7 @@ const domEvents = (uid) => {
     // CLICK EVENT FOR VIEWING PAYMENT FORM OF AN ORDER
     if (e.target.id.includes('payment-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
+      console.warn(firebaseKey.orderstatus);
       viewOrderDetails(firebaseKey).then(buildPaymentForm);
     }
     // CLOSE PAYMENT
