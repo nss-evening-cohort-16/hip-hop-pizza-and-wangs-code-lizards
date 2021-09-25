@@ -45,13 +45,13 @@ The user for this app is an employee of Hip Hop, Pizza, and Wangs. The user is a
 ```
 ## Project Screenshots
 #### Home Page
-![Screenshot (31)](https://user-images.githubusercontent.com/86082231/134739105-ae9c1896-8d84-4298-9e25-8f9cef23b0e3.png)
+![home2](https://user-images.githubusercontent.com/86806913/134776557-bce4a7f3-0254-4cd9-afdf-ceddd4e7bc71.PNG)
 #### View Orders
-![Screenshot (32)](https://user-images.githubusercontent.com/86082231/134739174-911c8ccf-1bc9-4d18-8622-5f74aa8c15b1.png)
+![orders](https://user-images.githubusercontent.com/86806913/134776448-58a7346d-a416-4297-95a0-11ffef3da686.PNG)
 #### Order Items
-![Screenshot (33)](https://user-images.githubusercontent.com/86082231/134739178-ca559553-7bf8-4aeb-b0fa-16794a3001dc.png)
+![items](https://user-images.githubusercontent.com/86806913/134776464-5160066c-7df8-41e5-9d07-1d38756d0eeb.PNG)
 #### Closed Payment
-![Screenshot (34)](https://user-images.githubusercontent.com/86082231/134739185-0ecde1d9-35d5-4481-90f5-8aa85250d8c4.png)
+![closed](https://user-images.githubusercontent.com/86806913/134776482-55d5a789-a129-4058-a9d6-2a078ef9435b.PNG)
 
 ## Contributers
 
