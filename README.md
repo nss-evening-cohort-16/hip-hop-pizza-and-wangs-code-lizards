@@ -17,6 +17,7 @@ The user for this app is an employee of Hip Hop, Pizza, and Wangs. The user is a
 * Revenue can be accessed via the View Revenue button.
 
 ## Video Walkthrough
+[Loom](https://www.loom.com/share/e16b265e50f345fa93b7a9c72e5828e8)
 ## Relevant Links
 * **[Deployed Site](https://app.netlify.com/sites/code-lizards-pizza/deploys)**
 * **[Wireframes](https://www.figma.com/file/4y3EZddALuBR3ouSEM57Np/MVP?node-id=0%3A1)**
