@@ -73,6 +73,20 @@ const filterOrders = (userId, orderStatus) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// SEARCH ORDERS BY PHONE NUMBER
+const searchOrders = (searchString, uid) => new Promise((resolve, reject) => {
+  getOrders(uid)
+    .then((orders) => {
+      const foundOrders = orders.filter((order) => {
+        const querybyName = order.customerName.toLowerCase().includes(searchString);
+        const querybyNumber = order.customerPhone.includes(searchString);
+        return (querybyName || querybyNumber);
+      });
+      resolve(foundOrders);
+    })
+    .catch(reject);
+});
+
 export {
   getOrders,
   createOrder,
@@ -81,5 +95,6 @@ export {
   getSingleOrder,
   closeOrder,
   getOrderPrice,
-  filterOrders
+  filterOrders,
+  searchOrders
 };
