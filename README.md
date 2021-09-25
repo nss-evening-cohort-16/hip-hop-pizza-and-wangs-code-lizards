@@ -1,7 +1,5 @@
-<div style="text-align:center">
-<h1>Hip Hop, Pizza, and Wangs</h1> [![Netlify Status](https://api.netlify.com/api/v1/badges/79b922b2-28ca-4630-beeb-886920dc00a8/deploy-status)](https://app.netlify.com/sites/code-lizards-pizza/deploys)
-
-<image src="./instructions/hhpw-record.png" style="height:300px;"></image></div>
+# Hip Hop, Pizza, and Wangs [![Netlify Status](https://api.netlify.com/api/v1/badges/79b922b2-28ca-4630-beeb-886920dc00a8/deploy-status)](https://app.netlify.com/sites/code-lizards-pizza/deploys)
+<image src="./instructions/hhpw-record.png" style="height:300px;"></image>
 
 ## Overview
 Hip Hop Pizza and Wangs is a restaurant that has received an influx of to-go orders due to the pandemic. This app is a Point of Sale web app designed to aid the restaurant in an easy and efficient way in tracking these orders. 
@@ -17,9 +15,9 @@ The user for this app is an employee of Hip Hop, Pizza, and Wangs. The user is a
 * Revenue can be accessed via the View Revenue button.
 
 ## Video Walkthrough
-[Loom](https://www.loom.com/share/e16b265e50f345fa93b7a9c72e5828e8)
+**[Loom](https://www.loom.com/share/e16b265e50f345fa93b7a9c72e5828e8)**
 ## Relevant Links
-* **[Deployed Site](https://app.netlify.com/sites/code-lizards-pizza/deploys)**
+* **[Deployed Site](https://code-lizards-pizza.netlify.app/)**
 * **[Wireframes](https://www.figma.com/file/4y3EZddALuBR3ouSEM57Np/MVP?node-id=0%3A1)**
 * **[Data Diagram](https://dbdiagram.io/d/613ff601825b5b014600799c)**
 * **[Project Board](https://github.com/nss-evening-cohort-16/hip-hop-pizza-and-wangs-code-lizards/projects/1)**
@@ -27,7 +25,7 @@ The user for this app is an employee of Hip Hop, Pizza, and Wangs. The user is a
 
 ## Code Snippet
 
-```    
+```javascript    
 // CLICK EVENT FOR SUBMITTING NEW ITEM
     if (e.target.id.includes('submit-item')) {
       console.warn('addingitem');
@@ -43,6 +41,18 @@ The user for this app is an employee of Hip Hop, Pizza, and Wangs. The user is a
       addItem(newItem, uid);
       viewOrderDetails(orderId).then(viewOrder);
     }
+```
+```javascript
+// VIEW REVENUE
+const viewRevenue = (obj) => {
+  clearDom();
+  const orderRevenue = obj.payments.reduce((total, payments) => total + payments.orderPrice + payments.orderTip, 0);
+  const tipRevenue = obj.payments.reduce((total, payments) => total + payments.orderTip, 0);
+  document.querySelector('#detailsContainer').innerHTML += `
+    <div id="orderTotal">
+    <h1>Total Revenue: $${orderRevenue}<h1>
+    <h1>Total Tips: $${tipRevenue}<h1>`;
+};
 ```
 ## Project Screenshots
 #### Home Page
