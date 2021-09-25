@@ -35,11 +35,11 @@ const domEvents = (uid) => {
       e.preventDefault();
       console.warn('Order submitted');
       const newOrder = {
-        customername: document.querySelector('#orderName').value,
-        customerphone: document.querySelector('#customerPhone').value,
-        customeremail: document.querySelector('#customerEmail').value,
-        ordertype: document.querySelector('#orderType').value,
-        orderstatus: 'Open',
+        customerName: document.querySelector('#orderName').value,
+        customerPhone: document.querySelector('#customerPhone').value,
+        customerEmail: document.querySelector('#customerEmail').value,
+        orderType: document.querySelector('#orderType').value,
+        orderStatus: 'Open',
         uid
       };
 
@@ -62,10 +62,10 @@ const domEvents = (uid) => {
       e.preventDefault();
       const [, firebaseKey] = e.target.id.split('--');
       const orderObject = {
-        customername: document.querySelector('#orderName').value,
-        customerphone: document.querySelector('#customerPhone').value,
-        customeremail: document.querySelector('#customerEmail').value,
-        ordertype: document.querySelector('#orderType').value,
+        customerName: document.querySelector('#orderName').value,
+        customerPhone: document.querySelector('#customerPhone').value,
+        customerEmail: document.querySelector('#customerEmail').value,
+        orderType: document.querySelector('#orderType').value,
         firebaseKey
       };
 
@@ -85,9 +85,9 @@ const domEvents = (uid) => {
       const [, orderId] = e.target.id.split('--');
       console.warn(orderId);
       const newItem = {
-        itemname: document.querySelector('#itemName').value,
-        itemprice: Number(document.querySelector('#itemPrice').value),
-        order_id: orderId,
+        itemName: document.querySelector('#itemName').value,
+        itemPrice: Number(document.querySelector('#itemPrice').value),
+        orderId,
         uid
       };
       addItem(newItem, uid).then(() => viewOrderDetails(orderId).then(viewOrder));
@@ -105,7 +105,7 @@ const domEvents = (uid) => {
     // CLICK EVENT FOR EDITING AN ITEM
     if (e.target.id.includes('edit-item')) {
       const [, firebaseKey] = e.target.id.split('--');
-      getSingleItem(firebaseKey).then((itemObj) => buildItemForm(itemObj.order_id, itemObj));
+      getSingleItem(firebaseKey).then((itemObj) => buildItemForm(itemObj.orderId, itemObj));
     }
 
     // CLICK EVENT FOR UPDATING AN ITEM
@@ -113,12 +113,12 @@ const domEvents = (uid) => {
       e.preventDefault();
       const [, firebaseKey] = e.target.id.split('--');
       const itemObject = {
-        itemname: document.querySelector('#itemName').value,
-        itemprice: Number(document.querySelector('#itemPrice').value),
+        itemName: document.querySelector('#itemName').value,
+        itemPrice: Number(document.querySelector('#itemPrice').value),
         firebaseKey
       };
       updateItem(itemObject);
-      getSingleItem(firebaseKey).then((itemObj) => viewOrderDetails(itemObj.order_id).then(viewOrder));
+      getSingleItem(firebaseKey).then((itemObj) => viewOrderDetails(itemObj.orderId).then(viewOrder));
     }
 
     // CLICK EVENT FOR DELETING AN ITEM
@@ -138,7 +138,6 @@ const domEvents = (uid) => {
     // CLICK EVENT FOR VIEWING PAYMENT FORM OF AN ORDER
     if (e.target.id.includes('payment-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
-      console.warn(firebaseKey.orderstatus);
       viewOrderDetails(firebaseKey).then(buildPaymentForm);
     }
     // CLOSE PAYMENT
@@ -146,11 +145,11 @@ const domEvents = (uid) => {
       e.preventDefault();
       const [, firebaseKey] = e.target.id.split('--');
       const newOrder = {
-        orderprice: Number(document.querySelector('#order-total').innerHTML),
-        ordertip: Number(document.querySelector('#tip-amount').value),
-        ordertype: document.querySelector('#order-type').value,
-        orderdate: Date(),
-        order_id: firebaseKey,
+        orderPrice: Number(document.querySelector('#order-total').innerHTML),
+        orderTip: Number(document.querySelector('#tip-amount').value),
+        orderType: document.querySelector('#order-type').value,
+        orderDate: Date(),
+        orderId: firebaseKey,
         uid
       };
       createPayment(newOrder).then(() => closeOrder(firebaseKey)).then(paymentSubmitted);
