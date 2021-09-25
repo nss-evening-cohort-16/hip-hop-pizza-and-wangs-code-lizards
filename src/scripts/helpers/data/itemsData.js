@@ -7,7 +7,7 @@ const dbUrl = firebaseConfig.databaseURL;
 
 // GET ITEMS
 const getItems = (orderId) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/items.json?orderBy="order_id"&equalTo="${orderId}"`)
+  axios.get(`${dbUrl}/items.json?orderBy="orderId"&equalTo="${orderId}"`)
     .then((response) => resolve(Object.values(response.data)))
     .catch(reject);
 });

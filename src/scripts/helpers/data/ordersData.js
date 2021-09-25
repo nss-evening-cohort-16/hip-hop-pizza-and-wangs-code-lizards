@@ -22,7 +22,7 @@ const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
 const closeOrder = (firebaseKey) => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/orders/${firebaseKey}.json`)
     .then(() => {
-      const newStatus = { orderstatus: 'Closed' };
+      const newStatus = { orderStatus: 'Closed' };
       axios.patch(`${dbUrl}/orders/${firebaseKey}.json`, newStatus);
     })
     .then(() => resolve())
@@ -58,7 +58,7 @@ const createOrder = (cardObj) => new Promise((resolve, reject) => {
 });
 
 const getOrderPrice = (firebaseKey) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/items.json?orderBy="order_id"&equalTo="${firebaseKey}"`)
+  axios.get(`${dbUrl}/items.json?orderBy="orderId"&equalTo="${firebaseKey}"`)
     .then((response) => resolve(Object.values(response.data)))
     .catch((error) => reject(error));
 });
@@ -67,7 +67,7 @@ const getOrderPrice = (firebaseKey) => new Promise((resolve, reject) => {
 const filterOrders = (userId, orderStatus) => new Promise((resolve, reject) => {
   getOrders(userId)
     .then((orders) => {
-      const selectedOrders = orders.filter((order) => (order.orderstatus === orderStatus));
+      const selectedOrders = orders.filter((order) => (order.orderStatus === orderStatus));
       resolve(selectedOrders);
     })
     .catch(reject);

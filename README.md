@@ -36,7 +36,7 @@ The user for this app is an employee of Hip Hop, Pizza, and Wangs. The user is a
       const newItem = {
         itemname: document.querySelector('#itemName').value,
         itemprice: document.querySelector('#itemPrice').value,
-        order_id: orderId,
+        orderId: orderId,
         uid
       };
       addItem(newItem, uid);
