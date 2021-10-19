@@ -1,0 +1,21 @@
+{
+  "items" : {
+    "-MjanafgdI_KWdRnPlo6" : {
+      "firebaseKey" : "-MjanafgdI_KWdRnPlo6",
+      "itemName" : "Cheese-sticks",
+      "itemPrice" : 8
+    }
+  },
+  "orders" : {
+    "-MjamfV4a1J8cdO2Ggg-" : {
+      "customerEmail" : "wizkid98@hogwarts.edu",
+      "customerName" : "Harry Potter",
+      "customerPhone" : "615-867-5309",
+      "firebaseKey" : "-MjamfV4a1J8cdO2Ggg-",
+      "orderStatus" : "Open",
+      "itemId" : "-MjanafgdI_KWdRnPlo6",
+      "orderPrice" : 34,
+      "orderType" : "Phone"
+    }
+  }
+}

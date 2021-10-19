@@ -3,8 +3,96 @@
 
 
 body {
-  background-color: antiquewhite;
-  color: brown;
+  background-color: rgb(75, 75, 75);
+  color: white;
   text-align: center;
   margin-top: 100px;
+}
+
+.loggedOutPizzaLogo {
+  width: 450px;
+  height: auto;
+}
+
+#navBar {
+  .nav-logo {
+    width: 80px;
+    height: auto;
+  }
+
+  #google-auth {
+    // margin-left: 800px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 30px;
+  }
+
+  .search-logout {
+    position: absolute;
+    right: 100px;
+    top: 0;
+    margin: 30px;
+  }
+}
+
+#mainContainer {
+  a:link {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  #buttons-container {
+    align-items: center;
+    margin-top: 200px;
+
+    .btn {
+      margin: 10px;
+    }
+  
+    .pizza-logo {
+      margin: 15px;
+      width: 250px;
+      height: auto;
+    }
+  }
+
+  #orderContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    margin: 10px;
+
+    .order-cards {
+      margin: 10px;
+      color:rgb(43, 42, 42)
+    }
+  }
+
+  #detailsContainer{
+    .card {
+      width: 80%;
+      align-items: center;
+      margin: 20px auto;
+      color:rgb(75, 75, 75)
+    }
+  }
+
+  #formContainer {
+    width: 80%;
+    margin: auto;
+
+    .mb-3 {
+      text-align: left;
+    }
+
+    .form-group,
+    .form-select {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+  }
 }
